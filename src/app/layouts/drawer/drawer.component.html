@@ -1,0 +1,20 @@
+<mat-sidenav-container class="app-drawer-container" fullscreen>
+    <mat-sidenav #sidenav mode="side" opened position="start" >
+        <br>
+        <button mat-button class="rec-menu mt-30" (click) ="loadModules(moduleName.CURRENCY_EXCHANGE);">
+            <span class="color-white">Currency Exchange</span>
+        </button>
+        <br>
+        <button mat-button class="rec-menu mt-30" (click) ="loadModules(moduleName.SAVING_ACCOUNTS);">
+            <span class="color-white">Saving Accounts</span>
+        </button>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div *ngIf="isSavingAccounts">
+           <app-saving-accounts></app-saving-accounts>
+        </div>
+        <div *ngIf="isCurrencyExchange">
+            <app-currency-exchange></app-currency-exchange>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

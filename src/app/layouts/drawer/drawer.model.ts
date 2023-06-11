@@ -1,0 +1,4 @@
+export enum ModuleName {
+    CURRENCY_EXCHANGE = 'CURRENCY_EXCHANGE',
+    SAVING_ACCOUNTS = 'SAVING_ACCOUNTS'
+}
