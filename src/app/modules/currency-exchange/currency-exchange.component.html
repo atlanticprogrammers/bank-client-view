@@ -2,3 +2,34 @@
 <h1>
  Currency Exchange Module
 </h1>
+
+<!-- <form class = "tp-form">
+    <mat-form-field class = "tp-full-width">
+       <input type = "text" 
+          placeholder = "Currency Name" 
+          aria-label = "Number" 
+          matInput 
+          [formControl] = "myControl" 
+          [matAutocomplete] = "auto">
+       <mat-autocomplete #auto = "matAutocomplete">
+          <mat-option *ngFor = "let currencyName of currencyList" [value] = "currencyName.value">
+             {{currencyName.display}}
+          </mat-option>
+       </mat-autocomplete>
+    </mat-form-field>
+ </form> -->
+
+ <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Currency Name</mat-label>
+      <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto" [(ngModel)]="value">
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{option.name}}
+        </mat-option>
+      </mat-autocomplete>
+      <button type="button" mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value = ''; clear(); ">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </form>
